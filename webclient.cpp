@@ -36,4 +36,14 @@ void Webclient::button_clicked()
 {
 
     m_socket->connectToHost(input->text(), m_port);
+
+    if(!m_socket->waitForConnected(3000))
+    {
+        textoutput("connect failed!");
+        m_socket->reset();
+
+    }
+
+
+
 }
